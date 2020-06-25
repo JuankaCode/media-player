@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prueba</title>
+</head>
+<body>
+    <ul>
+        <li><button class="call-to-action">Aprende</button> </li>
+        <li><button class="call-to-action">Sigue aprendiendo</button> </li>
+        <li><button class="call-to-action">Seras un experto</button> </li>
+    </ul>
+
+    <form action="/">
+        <input type="submit" value="perras">
+        <button type="submit">cojudas</button>
+    </form>
+
+
+    <script>
+        function saludar(receptor){
+            console.log(`Hello, I'm ${this.name}, ${receptor} fue una amiga`)
+        }
+        
+        const Carlos ={
+            name:`Carlos`,
+            lastName:`Mamani`
+        }
+        saludar.call(Carlos, `Vanessa`);
+        // ----
+        saludar.apply(Carlos, [`Adaluz`])
+        // ---
+        const Adaluz= {name:`Adaluz`, lastName:`Alvarez`}
+        // ----
+        const adaluzSaluda = saludar.bind(Adaluz, `Lilian`)
+        adaluzSaluda()
+
+        const buttons = document.getElementsByClassName('call-to-action') //buttons son nodelist
+
+        Array.prototype.forEach.call(buttons, item => {
+            item.onclick = ()=>alert(`Nunca pares de aprender`)
+        })
+
+        // buttons.forEach(item => {
+        //     item.onclick = ()=>alert(`Nunca pares de aprender`)
+        // })
+
+    </script>
+</body>
+</html>
+

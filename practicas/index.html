@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>closures</title>
+</head>
+<body>
+    <script>
+
+        // (function (){
+        //     let color = `green`
+    
+        //     function printColor(){
+        //         console.log(color);
+        //     }
+        //     printColor()
+        // })();       // IIFE
+        
+        //funciones que regresan funciones
+
+        // function makeColorPrinter (color){
+        //     let colorMessage =`This is color ${color}`
+
+        //     return function (){
+        //         console.log(colorMessage);
+        //     }
+        // }
+
+        // let greenColorPrinter = makeColorPrinter(`green`);
+        // console.log(greenColorPrinter());
+
+            // let count={
+            //     first:8
+            // }
+            // count.first=88;
+
+        function makeCounter(n){
+            let count = n;
+
+            return {
+                increase: function (){
+                    return count++
+                },
+                decrease: function (){
+                    return count--
+                },
+                getCount: function (){
+                    return count;
+                },
+                getYear(){
+                    return 2020;
+                }
+            }
+        }
+        
+        let counter = makeCounter(9);
+
+        console.log(counter.getCount())
+        counter.increase()
+        counter.increase()
+        counter.increase()
+        counter.increase()
+        console.log(counter.getCount())
+
+
+    </script>
+</body>
+</html>

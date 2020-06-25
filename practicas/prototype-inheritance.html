@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        function Hero(name, age){
+            this.name=name
+            this.age = age;
+            
+        }
+        Hero.prototype.saludar = function(){
+            console.log(`New: Hello I'm ${this.name} and I'm ${this.age} putos perros`)
+        };
+    
+        const Batman = new Hero('Batman', 25);
+        
+        // console.log(Batman.name)
+
+        // console.log(Batman.saludar)
+
+        console.log(Batman.hasOwnProperty(`saludar`) )
+        
+    </script>    
+</body>
+</html>

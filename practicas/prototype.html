@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prototype</title>
+</head>
+<body>
+    
+    <script>
+        // objeto simple
+
+            // const Batman ={
+            //     name :`Batman`
+            // }
+            // Batman.saludar = function(){
+            //     console.log(`Hello I'm ${this.name}`)
+            // }
+            // Batman.saludar()
+
+            // const Superman ={
+            //     name :`Superman`
+            // }
+            // Superman.saludar = function(){
+            //     console.log(`Hello I'm ${this.name}`)
+            // }
+            // Superman.saludar()
+
+        // objeto casi solo segunda mejora
+            // function Hero(name, age){
+            //     const hero ={
+            //         name: name,
+            //         age: age,
+            //     }
+
+            //     hero.saludar = function (){
+            //         console.log(`Hello I'm ${this.name}`)
+            //     }
+
+            //     return hero
+            // }
+            // const Batman = Hero('Batman', 25);
+            // Batman.saludar()
+            // const Superman = Hero('Superman', 35);
+            // Superman.saludar()
+
+
+        //  un poco mejor
+
+            // const heroMethods ={
+            //     saludar :function (){
+            //         console.log(`Hello I'm ${this.name} and I'm ${this.age}`)
+            //     }            
+            // }
+            // function Hero(name, age){
+            //     const hero ={
+            //         name: name,
+            //         age: age,
+            //     }
+            //     hero.saludar = heroMethods.saludar;
+            //     return hero
+            // }
+
+            // const Batman = Hero('Batman', 25);
+            // Batman.saludar()
+            // const Superman = Hero('Superman', 35);
+            // Superman.saludar()
+
+        // Usando Object.create mejorando la cosa
+
+            // const heroMethods ={
+            //     name:`Carlos`,
+            //     saludar :function (){
+            //         console.log(`Hello I'm ${this.name} and I'm ${this.age} putos`)
+            //     }            
+            // }
+            // function Hero(name, age){
+            //     const hero = Object.create(heroMethods)
+            //     hero.age = age;
+
+            //     return hero
+            // }
+
+            // const Batman = Hero('Batman', 25);
+            // Batman.saludar()
+            // const Superman = Hero('Superman', 35);
+            // Superman.saludar()
+        
+        // sorpresitas
+            // function Hero(name, age){
+            //     const hero = Object.create(Hero.prototype)
+            //     hero.name=name
+            //     hero.age = age;
+                
+            //     return hero
+            // }
+
+            // Hero.prototype.saludar = function(){
+            //     console.log(`Hello I'm ${this.name} and I'm ${this.age} putos perros`)
+            // };
+
+
+            // const Batman = Hero('Batman', 25);
+            // Batman.saludar()
+            // const Superman = Hero('Superman', 35);
+            // Superman.saludar()
+
+        // Object prototype con new 
+        function Hero(name, age){
+            // this= Object.create(Hero.prototype)
+            this.name=name
+            this.age = age;
+            
+            // return this
+        }
+
+        Hero.prototype.saludar = function(){
+            console.log(`New: Hello I'm ${this.name} and I'm ${this.age} putos perros`)
+        };
+
+
+        const Batman = new Hero('Batman', 25);
+        Batman.saludar()
+        const Superman = new Hero('Superman', 35);
+        Superman.saludar()
+
+
+    </script>
+</body>
+</html>
